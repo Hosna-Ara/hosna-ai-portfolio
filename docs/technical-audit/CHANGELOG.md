@@ -1,5 +1,18 @@
 # Engineering changelog
 
+## 2026-09-27 — Small navbar brand refinement
+
+- Reused the prepared 256×128 cropped Hosna mark as the primary navbar identity,
+  preserving the complete artwork, 2:1 aspect ratio, accessible name and cream palette.
+- Original PNG remains untouched and unpublished; only the 47,879-byte derivative
+  is allowlisted. Existing favicon, hero, assistant and all retrieval logic remain unchanged.
+- Updated only affected asset/DOM/HTTP assertions and this technical record. The
+  owner subsequently committed the implementation and added the Pages workflow;
+  this completion does not push or deploy. Header balance and responsive spacing
+  still need human visual confirmation in a browser.
+- Completion verification: schema/syntax validation, production build and all 127
+  existing tests pass. Retrieval evaluation was not rerun for this visual-only task.
+
 ## 2026-09-27 — Award-ready V2 refinement (local, not deployed)
 
 - Renamed the visible guide to **Hosna's Personal AI Assistant**, retaining short

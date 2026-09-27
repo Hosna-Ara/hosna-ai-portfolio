@@ -9,12 +9,13 @@ routing and genuine BM25 lexical ranking over curated public evidence. Its visib
 name is **Hosna's Personal AI Assistant**. There is no live LLM, external AI API,
 embedding model, backend, analytics or persistent conversation storage.
 
-V2 retains the cream/off-white and dark-green palette, editorial typography, ha.
-identity, two-column desktop hero, four featured project cards, seven reviewed
+V2 retains the cream/off-white and dark-green palette, editorial typography,
+two-column desktop hero, four featured project cards, seven reviewed
 images, section order, filters and four suggested question cards. New portfolio
 and preparation records are assistant-accessible without adding featured cards.
-Only header wrapping and keyboard focus CSS were added; browser visual approval
-is still required.
+The subsequent small branding refinement replaces the navbar monogram with the
+approved cropped Hosna mark; the hero and assistant remain unchanged. Browser
+visual approval is still required.
 
 The build produces 32 public entities from 25 curated records, five professional
 links and two dashboard descriptions. Validation and public visibility filtering
@@ -416,7 +417,25 @@ files. Missing optional previews warn and retain UI fallback. Alt text, dimensio
 lazy loading, decoding hints and larger-image actions remain. Metadata is not a
 license to introduce unreviewed image claims or public raw PDF downloads.
 
+The navbar additionally uses `assets/hosna-brand-mark-cropped.png` (256×128,
+47,879 bytes), explicitly allowlisted by the build and Git. The uploaded
+`hosna-brand-mark.png` remains unchanged, ignored and excluded from production.
+`scripts/prepare-brand.js` uses existing native AppKit tooling to crop the complete
+artwork at x=160, y=384, width=960, height=480, then resize proportionally. No new
+dependency or generated artwork was introduced. The header displays it at 112×56
+CSS pixels with intrinsic dimensions, preserved aspect ratio and multiply blending
+against the cream background. Alt text is “Hosna Ara”; the home link retains its
+accessible name. No extra hero decoration or repeated logo was added. The existing
+SVG favicon remains for small-size legibility. Human review should confirm header
+balance, background blending and mobile/tablet spacing; browser launch was previously
+blocked by the sandbox, which remains unchanged.
+
 ## 29. Deployment and versioning architecture
+
+Subsequent owner update: the project was committed and pushed, and the owner reports
+a working GitHub Pages deployment. Remote main adds `.github/workflows/deploy-pages.yml`.
+The branding completion preserves that workflow; this agent did not deploy or push.
+The paragraphs below describe the earlier V2 completion state, before that owner update.
 
 Only `dist/` is a future publishable artifact. The local server binds 127.0.0.1 and
 defaults to port 4173; HTTP tests use 4187. Static hosting can serve the module-relative
