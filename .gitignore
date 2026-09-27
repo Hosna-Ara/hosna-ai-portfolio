@@ -1,0 +1,23 @@
+.env
+.env.*
+!.env.example
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.pyc
+.DS_Store
+dist/
+build/
+.next/
+coverage/
+*.log
+.cache/
+test-results/
+Hosna_Ara_CV.pdf
+sources/
+*.pdf
+# Only reviewed derivatives belong in a future public repository.
+public/assets/*
+!public/assets/selected/
+!public/assets/hosna-brand-mark-cropped.png

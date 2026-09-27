@@ -1,0 +1,32 @@
+[
+  {
+    "label": "GitHub",
+    "url": "https://github.com/Hosna-Ara",
+    "source": "CV",
+    "visibility": "public"
+  },
+  {
+    "label": "LinkedIn",
+    "url": "https://www.linkedin.com/in/habegum/",
+    "source": "CV",
+    "visibility": "public"
+  },
+  {
+    "label": "Google Scholar",
+    "url": "https://scholar.google.com/citations?user=jyz6s4MAAAAJ",
+    "source": "CV",
+    "visibility": "public"
+  },
+  {
+    "label": "ORCID",
+    "url": "https://orcid.org/0009-0009-4352-5652",
+    "source": "CV",
+    "visibility": "public"
+  },
+  {
+    "label": "Previous portfolio",
+    "url": "https://sites.google.com/view/hosna-ara-begum/home?pli=1",
+    "source": "CV and public portfolio",
+    "visibility": "public"
+  }
+]

@@ -1,0 +1,150 @@
+[
+  {
+    "id": "utas-assistant",
+    "category": "projects",
+    "title": "UTAS Research Degree Assistant",
+    "date": "2026",
+    "summary": "Independently built a grounded conversational assistant for discovering research projects, supervisors, scholarships and research-degree guidance. Combines hybrid retrieval with knowledge graphs, relational queries and citation-aware answers. An unofficial student-built prototype; visitors should verify guidance with official UTAS sources.",
+    "role": "Independent end-to-end developer",
+    "technologies": [
+      "Python",
+      "RAG",
+      "BM25",
+      "Sentence-Transformers",
+      "RDF",
+      "SPARQL",
+      "Qwen",
+      "Streamlit"
+    ],
+    "tags": [
+      "ai",
+      "recent",
+      "latest",
+      "rag",
+      "retrieval",
+      "agent",
+      "utas",
+      "supervisor"
+    ],
+    "source": "CV, selected projects; public repository README, checked 2026-09-27",
+    "visibility": "public",
+    "anchor": "project-utas-assistant",
+    "urls": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/Hosna-Ara/utas-research-degree-assistant"
+      }
+    ],
+    "status": "current",
+    "year": 2026
+  },
+  {
+    "id": "threatbrief",
+    "category": "projects",
+    "title": "ThreatBrief AI",
+    "date": "2026",
+    "summary": "An automated threat-intelligence prototype built by the winning team at the TasNetworks Open Innovation Hackathon 2026. Hosna contributed analysis, project coordination and the final presentation. After the hackathon she independently recreated and extended the AI and solution architecture to deepen her understanding of the pipeline and agent workflow.",
+    "role": "Team contributor; independent post-hackathon extension",
+    "technologies": [
+      "AWS",
+      "Amazon Bedrock",
+      "Agentic AI"
+    ],
+    "tags": [
+      "ai",
+      "recent",
+      "threat",
+      "hackathon",
+      "agent",
+      "team"
+    ],
+    "source": "CV, selected projects and awards",
+    "visibility": "public",
+    "anchor": "project-threatbrief",
+    "urls": [],
+    "status": "completed",
+    "year": 2026
+  },
+  {
+    "id": "cyberquiz",
+    "category": "projects",
+    "title": "CyberQuiz Pro",
+    "date": "2026",
+    "summary": "An adaptive cybersecurity practice platform developed by a six-member University of Tasmania MITS capstone team. As Project Manager / Communication Lead, Hosna led planning, stakeholder communication, requirements traceability, architecture coordination and delivery management.",
+    "role": "Project Manager / Communication Lead",
+    "technologies": [],
+    "tags": [
+      "cyberquiz",
+      "cybersecurity",
+      "recent",
+      "team",
+      "capstone",
+      "leadership"
+    ],
+    "source": "CV, selected projects",
+    "visibility": "public",
+    "anchor": "project-cyberquiz",
+    "urls": [],
+    "status": "completed",
+    "year": 2026
+  },
+  {
+    "id": "tasenergy",
+    "category": "projects",
+    "title": "TasEnergy Insight",
+    "date": "In progress · public repository checked Sep 2026",
+    "summary": "A portfolio analytics project exploring Australian electricity-market data for energy operations and decision support. The public README describes project setup and business analysis as in progress; proposed work includes dimensional modelling, SQL and Power BI reporting. The business scenario is fictional, not a client engagement.",
+    "role": "Public portfolio project",
+    "technologies": [
+      "SQL",
+      "Python",
+      "Power BI",
+      "PostgreSQL"
+    ],
+    "tags": [
+      "bi",
+      "data",
+      "analytics",
+      "energy",
+      "recent",
+      "dashboard"
+    ],
+    "source": "Public GitHub README, checked 2026-09-27",
+    "visibility": "public",
+    "anchor": "project-tasenergy",
+    "urls": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/Hosna-Ara/tasenergy-insight"
+      }
+    ],
+    "status": "current",
+    "year": 2026,
+    "plannedWork": "Proposed work includes dimensional modelling, SQL and Power BI reporting. Setup and business analysis are in progress; this is a fictional business scenario."
+  },
+  {
+    "id": "portfolio-assistant",
+    "category": "projects",
+    "title": "Hosna's interactive AI portfolio",
+    "date": "2026 – present",
+    "year": 2026,
+    "status": "current",
+    "summary": "An interactive portfolio with Hosna's Personal AI Assistant, currently being developed through human-directed AI-assisted software engineering. It answers questions using curated public professional knowledge.",
+    "role": "Project direction, professional content curation and design review",
+    "technologies": [
+      "JavaScript",
+      "HTML",
+      "CSS"
+    ],
+    "tags": [
+      "ai",
+      "portfolio",
+      "assistant"
+    ],
+    "source": "Owner instruction for V2 refinement, 2026-09-27; current project implementation",
+    "visibility": "public",
+    "anchor": "assistant",
+    "urls": [],
+    "featured": false
+  }
+]

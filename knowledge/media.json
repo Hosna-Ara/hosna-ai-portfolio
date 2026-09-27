@@ -1,0 +1,81 @@
+{
+  "projects": {
+    "utas-assistant": {
+      "src": "assets/selected/utas-research-assistant.jpg",
+      "width": 1400,
+      "height": 673,
+      "alt": "UTAS Research Degree Assistant interface with research-discovery prompts and a grounded search input.",
+      "caption": "Product view · independent end-to-end development",
+      "source": "User-supplied utas-research-assistant.png",
+      "visibility": "public"
+    },
+    "cyberquiz": {
+      "src": "assets/selected/cyberquiz-pro.jpg",
+      "width": 1400,
+      "height": 686,
+      "alt": "CyberQuiz Pro interface showing adaptive cybersecurity practice and a sample quiz question.",
+      "caption": "Team product · Project Manager / Communication Lead",
+      "source": "User-supplied cyberquiz-pro.png",
+      "visibility": "public"
+    },
+    "threatbrief": {
+      "src": "assets/selected/threatbrief-presentation.jpg",
+      "width": 659,
+      "height": 361,
+      "alt": "ThreatBrief AI presentation with a slide about a multi-agent threat-intelligence pipeline.",
+      "caption": "Team presentation · analysis, coordination and communication",
+      "source": "User-supplied threatbrief-presentation.jpg",
+      "visibility": "public"
+    }
+  },
+  "dashboards": [
+    {
+      "src": "assets/selected/hospital-analytics.jpg",
+      "width": 1400,
+      "height": 989,
+      "alt": "Hospital analytics dashboard with department ratios, ward bed utilisation and monthly resource trends.",
+      "title": "Hospital analytics",
+      "caption": "Resource utilisation · selected report page",
+      "description": "A report view bringing together department ratios, ward utilisation and monthly resource trends.",
+      "source": "User-supplied hospital-analytics.pdf, page 8",
+      "visibility": "public"
+    },
+    {
+      "src": "assets/selected/pharma-analytics.jpg",
+      "width": 1400,
+      "height": 989,
+      "alt": "Pharmaceutical analytics executive dashboard with dosage-form summaries, sales trends and variance tables.",
+      "title": "Pharmaceutical analytics",
+      "caption": "Executive summary · selected report page",
+      "description": "An executive view of sales trends, dosage-form summaries and variance reporting.",
+      "source": "User-supplied pharma-analytics.pdf, page 2",
+      "visibility": "public"
+    }
+  ],
+  "moments": [
+    {
+      "src": "assets/selected/hackathon-first-prize.jpg",
+      "width": 844,
+      "height": 1061,
+      "alt": "First-prize placard from the TasNetworks Open Innovation Hackathon 2026.",
+      "title": "A team achievement",
+      "caption": "TasNetworks Open Innovation Hackathon · 2026",
+      "description": "Team ThreatBrief AI won the Automated Threat Intelligence challenge. Hosna contributed analysis, coordination and the final presentation.",
+      "anchor": "project-threatbrief",
+      "source": "User-supplied hackathon-first-prize.jpg; achievement and role verified in CV",
+      "visibility": "public"
+    },
+    {
+      "src": "assets/selected/iiuc-speaking.jpg",
+      "width": 960,
+      "height": 635,
+      "alt": "A supplied photograph from Hosna’s earlier speaking activities at IIUC.",
+      "title": "Communication & community",
+      "caption": "Earlier speaking and student engagement",
+      "description": "Alongside technical work, Hosna led Women in Engineering activities as Chairperson of the IEEE IIUC WIE Affinity Group from 2016 to 2018.",
+      "anchor": "leadership",
+      "source": "User-supplied iiuc-speaking.jpg; leadership role verified in CV. Photo event and date are not inferred.",
+      "visibility": "public"
+    }
+  ]
+}

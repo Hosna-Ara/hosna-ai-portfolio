@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Hosna Ara — AI, Data Analytics and Business Intelligence. Explore grounded AI projects, analytics experience and research through an interactive portfolio assistant.">
+  <meta name="theme-color" content="#174f46">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta property="og:title" content="Hosna Ara · AI, Data & BI">
+  <meta property="og:description" content="Grounded AI. Clearer insights. Explore Hosna’s projects, professional experience and research.">
+  <meta property="og:type" content="website">
+  <title>Hosna Ara · AI, Data Analytics & Business Intelligence</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./src/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="wordmark" href="#home" aria-label="Hosna Ara, home"><img class="brand-mark" src="./assets/hosna-brand-mark-cropped.png" width="256" height="128" alt="Hosna Ara"></a>
+    <button id="menu-toggle" class="menu-toggle" aria-expanded="false" aria-controls="main-nav">Menu <span aria-hidden="true">＋</span></button>
+    <nav id="main-nav" aria-label="Main navigation"><a href="#work">Work</a><a href="#research">Research</a><a href="#experience">Experience</a><a href="#contact">Contact</a><a class="nav-ai" href="#assistant">Ask my assistant <span aria-hidden="true">↗</span></a></nav>
+  </header>
+  <main id="main">
+    <section class="hero wrap conversational-hero" id="home" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot"></span> A PORTFOLIO YOU CAN TALK TO</p>
+        <h1 id="hero-title">Hosna Ara<span class="name-dot">.</span></h1>
+        <p class="positioning">AI <span>•</span> Data Analytics <span>•</span> Business Intelligence</p>
+        <p class="hero-intro">Grounded AI.<br>Data that informs decisions.</p>
+        <p class="hero-detail">I bring nearly four years of analytics and BI experience to applied AI and human–AI interaction research.</p>
+        <p class="conversation-invitation">Ask my AI assistant about my work, projects, research, experience or education.</p>
+        <a class="text-link hero-browse" href="#work">Or explore the work below <span aria-hidden="true">↓</span></a>
+      </div>
+      <section id="assistant" class="hero-assistant chat-panel" aria-labelledby="assistant-title">
+        <div class="chat-header"><div><span class="ai-mark" aria-hidden="true">ha.</span><div><h2 id="assistant-title">Hosna's Personal AI Assistant</h2><span>YOUR PORTFOLIO GUIDE</span></div></div><button id="clear-chat" class="quiet-button" type="button">Clear chat</button></div>
+        <div class="chat-welcome" id="chat-welcome"><p>What would you like to know about Hosna?</p><div id="suggestions" class="suggestions" role="group" aria-label="Starter questions"></div></div>
+        <div id="chat-log" class="chat-log" role="log" aria-label="Portfolio conversation" aria-live="polite" aria-relevant="additions" tabindex="0"><div class="message assistant-message"><span class="message-label">ASSISTANT</span><p>Ask a question. I’ll find the relevant experience, project or research and show you where to explore it.</p></div></div>
+        <p id="chat-status" class="chat-status" role="status">Loading portfolio knowledge…</p>
+        <form id="chat-form"><label class="sr-only" for="question">Ask about Hosna’s professional work</label><div class="input-row"><input id="question" name="question" placeholder="Ask about Hosna…" maxlength="400" autocomplete="off" required aria-describedby="chat-privacy"><button type="submit" aria-label="Send question" disabled>↑</button></div><div class="input-footer"><span id="chat-privacy">Verified knowledge · no live LLM · stays in your browser</span><span id="char-count">0 / 400</span></div></form>
+      </section>
+    </section>
+    <div class="credentials-strip wrap"><span><strong>Nearly 4 years</strong>in analytics & BI</span><span><strong>3 publications</strong>AI, imaging & IoT</span><span><strong>UTAS</strong>Master’s candidate</span><span><strong>2026 team winner</strong>TasNetworks hackathon</span></div>
+    <section id="work" class="wrap section" aria-labelledby="work-title"><div class="section-heading"><div><p class="eyebrow">01 / SELECTED WORK</p><h2 id="work-title">From questions to useful systems.</h2></div><p>AI assistants, analytical thinking<br>and collaborative delivery.</p></div><div class="filters" role="group" aria-label="Filter projects"><button class="filter active" data-filter="all" aria-pressed="true">All work</button><button class="filter" data-filter="ai" aria-pressed="false">AI & intelligent systems</button><button class="filter" data-filter="bi" aria-pressed="false">Data & BI</button><button class="filter" data-filter="team" aria-pressed="false">Team projects</button></div><p id="filter-status" class="sr-only" role="status"></p><div id="projects" class="project-grid"></div><div id="analytics" class="analytics-examples"><div class="subheading"><div><p class="eyebrow">A CLOSER LOOK / DATA & BI</p><h3>Making the numbers readable.</h3></div><a class="text-link" href="#experience">Explore BI experience ↗</a></div><p class="analytics-intro">Selected dashboard examples from the supplied portfolio materials. The figures shown are report content, not claims about project outcomes.</p><div id="dashboard-previews" class="dashboard-grid"></div></div></section>
+    <section id="experience" class="experience-section"><div class="wrap section experience-layout"><div><p class="eyebrow">02 / PROFESSIONAL EXPERIENCE</p><h2>A foundation<br>in real decisions.</h2><p>Nearly four years translating business requirements into analytical and reporting solutions.</p><details id="about" class="profile-details"><summary>More about Hosna</summary><p id="about-summary"></p></details></div><div id="experience-list" class="timeline"></div></div></section>
+    <section id="research" class="wrap section" aria-labelledby="research-title"><div class="section-heading"><div><p class="eyebrow">03 / RESEARCH & PUBLICATIONS</p><h2 id="research-title">Intelligent systems.<br>Human considerations.</h2></div><p>Grounding, interpretability and<br>responsible human–AI interaction.</p></div><div id="research-list" class="research-grid"></div><div id="publications" class="publications"><div class="subheading"><h3>Selected publications</h3><a class="text-link" href="https://scholar.google.com/citations?user=jyz6s4MAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar ↗</a></div><div id="publication-list"></div></div></section>
+    <section class="wrap section education-skills"><div id="education"><p class="eyebrow">04 / EDUCATION</p><h2>Learning with purpose.</h2><div id="education-list"></div></div><div id="skills"><p class="eyebrow">05 / TECHNICAL CAPABILITIES</p><h2>The working toolkit.</h2><div id="skills-list"></div></div></section>
+    <section id="leadership" class="wrap section leadership"><div class="section-heading"><div><p class="eyebrow">06 / INDUSTRY, LEADERSHIP & ACHIEVEMENTS</p><h2>Contributing together.</h2></div><p>Team achievements, student leadership<br>and technical communities.</p></div><div id="leadership-moments" class="leadership-moments"></div><div id="leadership-list" class="leadership-grid"></div></section>
+    <section id="contact" class="contact-section"><div class="wrap section"><p class="eyebrow">07 / LET’S CONNECT</p><h2>A good conversation<br>can lead somewhere.</h2><p>AI and data opportunities. Research collaboration.<br>Ideas worth exploring.</p><a class="contact-email" href="mailto:hosna.a.bgm@gmail.com">hosna.a.bgm@gmail.com <span aria-hidden="true">↗</span></a><div id="contact-links" class="contact-links"></div></div></section>
+  </main>
+  <footer class="wrap"><a class="wordmark" href="#home">HOSNA ARA<span class="name-dot">.</span></a><p>AI • Data Analytics • Business Intelligence</p><a href="#home">Back to top ↑</a></footer>
+  <noscript><p class="noscript">Enable JavaScript to load the project details and local portfolio assistant. You can still contact Hosna at <a href="mailto:hosna.a.bgm@gmail.com">hosna.a.bgm@gmail.com</a>.</p></noscript>
+</body>
+</html>
