@@ -1,4 +1,65 @@
 [
-  {"id":"hackathon","category":"achievements","title":"TasNetworks Open Innovation Hackathon winner","date":"2026","summary":"Member of Team ThreatBrief AI, winner of the Automated Threat Intelligence challenge.","role":"Winning team member","technologies":[],"tags":["award","achievement","winner","hackathon"],"source":"CV, awards","visibility":"public","anchor":"leadership","urls":[]},
-  {"id":"volunteer","category":"achievements","title":"Best Student Volunteer Award (Female)","date":"2018","summary":"Awarded by the IEEE IIUC Student Branch for leadership and contributions to IEEE student activities.","role":"Award recipient","technologies":[],"tags":["award","achievement","volunteer"],"source":"CV, awards","visibility":"public","anchor":"leadership","urls":[]}
+  {
+    "id": "hackathon",
+    "category": "achievements",
+    "title": "TasNetworks Open Innovation Hackathon winner",
+    "date": "2026",
+    "summary": "Member of Team ThreatBrief AI, winner of the Automated Threat Intelligence challenge.",
+    "role": "Winning team member",
+    "technologies": [],
+    "tags": [
+      "award",
+      "achievement",
+      "winner",
+      "hackathon"
+    ],
+    "source": "CV, awards",
+    "visibility": "public",
+    "anchor": "leadership",
+    "urls": []
+  },
+  {
+    "id": "volunteer",
+    "category": "achievements",
+    "title": "Best Student Volunteer Award (Female)",
+    "date": "2018",
+    "summary": "Awarded by the IEEE IIUC Student Branch for leadership and contributions to IEEE student activities.",
+    "role": "Award recipient",
+    "technologies": [],
+    "tags": [
+      "award",
+      "achievement",
+      "volunteer"
+    ],
+    "source": "CV, awards",
+    "visibility": "public",
+    "anchor": "leadership",
+    "urls": []
+  },
+  {
+    "id": "cyberquiz-business-acumen",
+    "category": "achievements",
+    "title": "Prize for Business Acumen",
+    "date": "6 October 2026",
+    "summary": "Hosna Ara Begum received the Prize for Business Acumen for CyberQuiz Pro: Certificate of Excellence \u2014 University of Tasmania, School of ICT Expo 2026, dated 6 October 2026. Recognised for \"outstanding strategic commercial acumen in the development of an innovative ICT solution addressing a real-world industry challenge.\"",
+    "role": "Individual certificate recipient: Hosna Ara Begum",
+    "technologies": [],
+    "tags": [
+      "cyberquiz",
+      "award",
+      "achievement",
+      "prize",
+      "business",
+      "acumen"
+    ],
+    "source": "CV, selected projects; owner-supplied award title and visually reviewed Certificate of Excellence, 6 October 2026",
+    "visibility": "public",
+    "anchor": "project-cyberquiz",
+    "urls": [
+      {
+        "label": "Certificate of Excellence",
+        "url": "./assets/selected/cyberquiz-certificate.jpg"
+      }
+    ]
+  }
 ]

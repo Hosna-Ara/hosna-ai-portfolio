@@ -1,7 +1,7 @@
 # Hosna interactive portfolio
 
 A static professional portfolio with **Hosna's Personal AI Assistant** in the
-approved cream/dark-green hero. The browser uses 32 curated public evidence records,
+approved cream/dark-green hero. The browser uses 33 curated public evidence records,
 deterministic routing and BM25 retrieval. No live LLM, API key, analytics, external
 font or runtime package is required.
 
@@ -44,8 +44,8 @@ visual layout, screen-reader behavior or contrast.
 ## Content and behavior
 
 Statuses are explicit: current, planned or completed. ThreatBrief AI is completed.
-UTAS, this portfolio and TasEnergy are current; TasEnergy's proposed work remains
-distinct from finished work. Research / PhD Preparation is exploratory, not an
+UTAS and this portfolio are current. TasEnergy's current reporting milestone is
+completed; live deployment, automatic refresh and Fabric are not claimed. Research / PhD Preparation is exploratory, not an
 approved topic or publication. Year-level project ties are disclosed honestly.
 
 The assistant supports project names, individual skills, dashboard examples,
@@ -62,13 +62,22 @@ projects without an image also need their visual title in `src/app.js`.
 
 ## Assets and privacy
 
-The seven approved JPEGs are already generated. `scripts/prepare-assets.js` can
+The thirteen approved JPEGs and the HB navbar derivative are already generated. `scripts/prepare-assets.js` can
 regenerate them on macOS through AppKit/PDFKit from local originals:
 
 ```sh
 mkdir -p .cache/pdf-review public/assets/selected
 TMPDIR="$PWD/.cache/pdf-review" osascript -l JavaScript scripts/prepare-assets.js
 ```
+
+For V3 assets, optionally run `python3 scripts/prepare-v3-assets.py` with local
+Pillow after the historical script. Normal builds need no image-conversion tools.
+The HB original is unchanged; only hb-monogram-cropped.png is published.
+
+Project media arrays use type, path, caption, alt, order, dimensions, source and
+visibility, with an optional video poster. Future reviewed local mp4/webm is
+supported; all current items are images and there are no video placeholders.
+Featured Work remains CyberQuiz, TasEnergy, UTAS assistant, then ThreatBrief.
 
 Only approved hospital page 8 and pharmaceutical page 2 previews are public.
 Original PDFs, CV, unused uploads and source caches remain ignored. Do not add
@@ -79,7 +88,9 @@ private values and exercise the actual build boundary.
 ## Engineering evidence
 
 Original suite: 59 passing tests. V2: 127 passing tests plus a 54-query development
-evaluation. The frozen baseline allows reproducible comparison:
+evaluation (historical). V3 passes 149 tests and a separate 63-query development
+evaluation. The frozen baseline remains evidence; avoid regenerating its report
+unless intentionally repeating the historical measurement:
 
 ```sh
 node scripts/evaluate.mjs --baseline
@@ -99,15 +110,15 @@ accepts only candidate IDs, falling back locally on failure. No backend, vendor
 client, endpoint or live model is configured. Future activation requires a separate
 privacy/security review and server-only credentials.
 
-A future static host must publish **only dist/**. No deployment, push, remote,
-release or fabricated historical commits were created. Git currently has no
-commits; meaningful history begins with a future honest initial snapshot.
+The existing GitHub Pages workflow is unchanged. Publish **only dist/** when
+explicitly instructed. Relative/module-based asset paths support
+`/hosna-ai-portfolio/`. This V3 iteration makes no commit, push or deployment.
 
 ## Living documentation
 
 [System technical documentation](docs/technical-audit/SYSTEM_TECHNICAL_DOCUMENTATION.md)
 is the authoritative current reference.
-[Changelog](docs/technical-audit/CHANGELOG.md) records V2.
+[Changelog](docs/technical-audit/CHANGELOG.md) records V2 and V3.
 [Content audit](CONTENT_AUDIT.md) retains source decisions;
 [review notes](REVIEW_NOTES.md) retain earlier review evidence.
 

@@ -1,32 +1,101 @@
 {
   "projects": {
-    "utas-assistant": {
-      "src": "assets/selected/utas-research-assistant.jpg",
-      "width": 1400,
-      "height": 673,
-      "alt": "UTAS Research Degree Assistant interface with research-discovery prompts and a grounded search input.",
-      "caption": "Product view · independent end-to-end development",
-      "source": "User-supplied utas-research-assistant.png",
-      "visibility": "public"
-    },
-    "cyberquiz": {
-      "src": "assets/selected/cyberquiz-pro.jpg",
-      "width": 1400,
-      "height": 686,
-      "alt": "CyberQuiz Pro interface showing adaptive cybersecurity practice and a sample quiz question.",
-      "caption": "Team product · Project Manager / Communication Lead",
-      "source": "User-supplied cyberquiz-pro.png",
-      "visibility": "public"
-    },
-    "threatbrief": {
-      "src": "assets/selected/threatbrief-presentation.jpg",
-      "width": 659,
-      "height": 361,
-      "alt": "ThreatBrief AI presentation with a slide about a multi-agent threat-intelligence pipeline.",
-      "caption": "Team presentation · analysis, coordination and communication",
-      "source": "User-supplied threatbrief-presentation.jpg",
-      "visibility": "public"
-    }
+    "utas-assistant": [
+      {
+        "width": 1400,
+        "height": 673,
+        "alt": "UTAS Research Degree Assistant interface with research-discovery prompts and a grounded search input.",
+        "caption": "Product view \u00b7 independent end-to-end development",
+        "source": "User-supplied utas-research-assistant.png",
+        "visibility": "public",
+        "type": "image",
+        "path": "assets/selected/utas-research-assistant.jpg",
+        "order": 1
+      }
+    ],
+    "cyberquiz": [
+      {
+        "type": "image",
+        "path": "assets/selected/cyberquiz-pro.jpg",
+        "width": 1400,
+        "height": 686,
+        "caption": "Product screenshot \u00b7 adaptive cybersecurity practice with a sample TLS question",
+        "alt": "CyberQuiz Pro landing page and adaptive practice panel asking which OSI layer TLS operates at.",
+        "order": 1,
+        "source": "Owner-supplied cyberquiz-pro.png; visually reviewed for V3",
+        "visibility": "public"
+      },
+      {
+        "type": "image",
+        "path": "assets/selected/cyberquiz-expo.jpg",
+        "width": 882,
+        "height": 883,
+        "caption": "ICT Expo \u00b7 Hosna at the CyberQuiz Pro demonstration stand",
+        "alt": "Hosna behind the demonstration monitor beside the CyberQuiz Pro poster at the ICT Expo.",
+        "order": 2,
+        "source": "Owner-supplied Cyber_Hosna.jpeg; visually reviewed for V3",
+        "visibility": "public"
+      },
+      {
+        "type": "image",
+        "path": "assets/selected/cyberquiz-team.jpg",
+        "width": 1400,
+        "height": 1050,
+        "caption": "ICT Expo \u00b7 six-member CyberQuiz Pro team with the product display",
+        "alt": "Six CyberQuiz Pro team members at their expo stand with the practice platform displayed on a monitor.",
+        "order": 3,
+        "source": "Owner-supplied Cyber_Team.jpeg; visually reviewed for V3",
+        "visibility": "public"
+      },
+      {
+        "type": "image",
+        "path": "assets/selected/cyberquiz-award.jpg",
+        "width": 1400,
+        "height": 788,
+        "caption": "Award celebration \u00b7 CyberQuiz Pro expo group with a framed certificate",
+        "alt": "CyberQuiz Pro expo group celebrating beside their project poster, with a framed Certificate of Excellence.",
+        "order": 4,
+        "source": "Owner-supplied WinnerPic_CyberquizPro.jpeg; visually reviewed for V3",
+        "visibility": "public"
+      }
+    ],
+    "threatbrief": [
+      {
+        "width": 659,
+        "height": 361,
+        "alt": "ThreatBrief AI presentation with a slide about a multi-agent threat-intelligence pipeline.",
+        "caption": "Team presentation \u00b7 analysis, coordination and communication",
+        "source": "User-supplied threatbrief-presentation.jpg",
+        "visibility": "public",
+        "type": "image",
+        "path": "assets/selected/threatbrief-presentation.jpg",
+        "order": 1
+      }
+    ],
+    "tasenergy": [
+      {
+        "type": "image",
+        "path": "assets/selected/tasenergy-1.jpg",
+        "width": 1489,
+        "height": 855,
+        "caption": "Market investigation \u00b7 June 2026 five-minute price spikes, demand versus price, hourly patterns and detailed attention intervals",
+        "alt": "TasEnergy Insight Market Investigation page for Tasmania in June 2026 with five-minute prices, demand-price scatterplot, hourly averages and attention intervals.",
+        "order": 1,
+        "source": "Owner-supplied TasEnergy_1.png; visually reviewed for V3",
+        "visibility": "public"
+      },
+      {
+        "type": "image",
+        "path": "assets/selected/tasenergy-2.jpg",
+        "width": 1494,
+        "height": 853,
+        "caption": "Dashboard overview \u00b7 June 2026 Tasmania demand and price trends, peak price of AUD 20,300/MWh, 483 attention intervals and 38 negative-price intervals",
+        "alt": "TasEnergy Insight overview for Tasmania in June 2026 showing demand and price KPIs, daily trends and periods requiring attention.",
+        "order": 2,
+        "source": "Owner-supplied TasEnergy_2.png; visually reviewed for V3",
+        "visibility": "public"
+      }
+    ]
   },
   "dashboards": [
     {
@@ -35,7 +104,7 @@
       "height": 989,
       "alt": "Hospital analytics dashboard with department ratios, ward bed utilisation and monthly resource trends.",
       "title": "Hospital analytics",
-      "caption": "Resource utilisation · selected report page",
+      "caption": "Resource utilisation \u00b7 selected report page",
       "description": "A report view bringing together department ratios, ward utilisation and monthly resource trends.",
       "source": "User-supplied hospital-analytics.pdf, page 8",
       "visibility": "public"
@@ -46,7 +115,7 @@
       "height": 989,
       "alt": "Pharmaceutical analytics executive dashboard with dosage-form summaries, sales trends and variance tables.",
       "title": "Pharmaceutical analytics",
-      "caption": "Executive summary · selected report page",
+      "caption": "Executive summary \u00b7 selected report page",
       "description": "An executive view of sales trends, dosage-form summaries and variance reporting.",
       "source": "User-supplied pharma-analytics.pdf, page 2",
       "visibility": "public"
@@ -59,7 +128,7 @@
       "height": 1061,
       "alt": "First-prize placard from the TasNetworks Open Innovation Hackathon 2026.",
       "title": "A team achievement",
-      "caption": "TasNetworks Open Innovation Hackathon · 2026",
+      "caption": "TasNetworks Open Innovation Hackathon \u00b7 2026",
       "description": "Team ThreatBrief AI won the Automated Threat Intelligence challenge. Hosna contributed analysis, coordination and the final presentation.",
       "anchor": "project-threatbrief",
       "source": "User-supplied hackathon-first-prize.jpg; achievement and role verified in CV",
@@ -69,7 +138,7 @@
       "src": "assets/selected/iiuc-speaking.jpg",
       "width": 960,
       "height": 635,
-      "alt": "A supplied photograph from Hosna’s earlier speaking activities at IIUC.",
+      "alt": "A supplied photograph from Hosna\u2019s earlier speaking activities at IIUC.",
       "title": "Communication & community",
       "caption": "Earlier speaking and student engagement",
       "description": "Alongside technical work, Hosna led Women in Engineering activities as Chairperson of the IEEE IIUC WIE Affinity Group from 2016 to 2018.",
@@ -77,5 +146,31 @@
       "source": "User-supplied iiuc-speaking.jpg; leadership role verified in CV. Photo event and date are not inferred.",
       "visibility": "public"
     }
-  ]
+  ],
+  "achievements": {
+    "cyberquiz-business-acumen": [
+      {
+        "type": "image",
+        "path": "assets/selected/cyberquiz-expo.jpg",
+        "width": 882,
+        "height": 883,
+        "caption": "ICT Expo \u00b7 Hosna at the CyberQuiz Pro demonstration stand",
+        "alt": "Hosna behind the demonstration monitor beside the CyberQuiz Pro poster at the ICT Expo.",
+        "order": 1,
+        "source": "Owner-supplied Cyber_Hosna.jpeg; visually reviewed for V3",
+        "visibility": "public"
+      },
+      {
+        "type": "image",
+        "path": "assets/selected/cyberquiz-certificate.jpg",
+        "width": 1335,
+        "height": 1888,
+        "caption": "Prize for Business Acumen \u00b7 Certificate of Excellence presented to Hosna Ara Begum, 6 October 2026. Open the image to read the full certificate.",
+        "alt": "University of Tasmania School of ICT Expo 2026 Certificate of Excellence presented to Hosna Ara Begum for CyberQuiz Pro, recognising outstanding strategic commercial acumen, dated 6 October 2026.",
+        "order": 2,
+        "source": "Owner-supplied HA Begum.png; visually reviewed for V3",
+        "visibility": "public"
+      }
+    ]
+  }
 }

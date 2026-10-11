@@ -17,7 +17,7 @@ const submit=async q=>{$('#question').value=q;$('#chat-form').dispatchEvent(new 
 const lastAnswer=()=>[...document.querySelectorAll('.assistant-message')].at(-1);
 
 test('landing identity and all major sections render',()=>{
-  assert.match($('#hero-title').textContent,/Hosna Ara/);
+  assert.equal($('#hero-title').textContent,'Hosna');
   for(const id of ['home','about','work','assistant','research','publications','experience','education','skills','leadership','contact'])assert.ok($(`#${id}`),id);
   assert.equal(document.querySelectorAll('.project-card').length,4);
   assert.equal(document.querySelectorAll('.publication').length,3);
@@ -36,13 +36,34 @@ test('evidence sections follow the requested sequence',()=>{
   let last=-1;for(const id of ids){const position=markup.indexOf(`id="${id}"`);assert.ok(position>last,id);last=position;}
 });
 test('seven reviewed previews render with accessible text and intrinsic dimensions',()=>{
-  const images=[...document.querySelectorAll('.portfolio-media img')];assert.equal(images.length,7);
+  const images=[...document.querySelectorAll('.portfolio-media img')];assert.equal(images.length,10);
   for(const image of images){assert.ok(image.alt.length>20);assert.ok(Number(image.width)>0&&Number(image.height)>0);assert.match(image.src,/assets\/selected\/.+\.jpg$/);}
   assert.equal(document.querySelectorAll('iframe,embed,object').length,0);
 });
 test('all rendered external links belong to approved knowledge',()=>{
   const approved=new Set([...knowledge.links,...knowledge.entities.flatMap(e=>e.urls)].map(e=>e.url));
   for(const a of document.querySelectorAll('a[href^="https:"],a[href^="mailto:"]')){assert.ok(approved.has(a.getAttribute('href')),a.outerHTML);if(a.target==='_blank')assert.match(a.rel,/noopener/);}
+});
+test('project action rows keep existing actions and add exact secure access links',()=>{
+ for(const [id,label,url,existing] of [
+  ['utas-assistant','Try Live Demo ↗','https://utas-research-degree-assistant.streamlit.app','GitHub ↗'],
+  ['cyberquiz','Try Live Demo ↗','https://d2q8nnpm7i97w5.cloudfront.net','Certificate of Excellence ↗'],
+  ['tasenergy','View Power BI Report ↗','https://github.com/Hosna-Ara/tasenergy-insight/blob/main/powerbi/TasEnergy_Insight.pdf','GitHub ↗']
+ ]){
+  const row=$(`#project-${id} .card-links`),link=row.querySelector(`a[href="${url}"]`);assert.ok(link);assert.equal(link.textContent,label);
+  assert.equal(link.target,'_blank');assert.match(link.rel,/noopener noreferrer/);assert.ok([...row.querySelectorAll('a')].some(a=>a.textContent===existing));
+  assert.match(row.querySelector('button').textContent,/Explore with the assistant/);
+ }
+ assert.equal($('#project-threatbrief .card-links a'),null);
+});
+test('rendered assistant project and follow-up answers expose canonical access links',async()=>{
+ for(const id of ['cyberquiz','tasenergy','utas-assistant']){
+  const project=knowledge.entities.find(e=>e.id===id);
+  await submit(`Tell me about ${project.title}`);
+  for(const link of project.urls)assert.ok(lastAnswer().querySelector(`a[href="${link.url}"]`),link.label);
+  await submit('Can I see it?');
+  for(const link of project.urls)assert.ok(lastAnswer().querySelector(`a[href="${link.url}"]`),link.label);
+ }
 });
 test('project filtering and reset update visibility and accessibility',()=>{
   click($('[data-filter="bi"]'));const visible=[...document.querySelectorAll('.project-card')].filter(c=>!c.hidden);
@@ -83,7 +104,7 @@ test('clear resets messages, context and character count',()=>{
 });
 test('empty submissions do not create messages',async()=>{await submit('   ');assert.equal(document.querySelectorAll('.message').length,1);});
 test('project exploration buttons ask about the selected project',async()=>{
-  click($('#project-threatbrief button'));await settle();assert.equal(location.hash,'assistant');assert.match(lastAnswer().textContent,/winning team/);assert.match(lastAnswer().textContent,/coordination/);
+  click($('#project-threatbrief .card-links button'));await settle();assert.equal(location.hash,'assistant');assert.match(lastAnswer().textContent,/winning team/);assert.match(lastAnswer().textContent,/coordination/);
 });
 test('no prohibited private facts appear in rendered application',()=>{
   assert.doesNotMatch(document.body.textContent,/SYNTHETIC_PRIVATE_ADDRESS|SYNTHETIC_PRIVATE_PHONE|SYNTHETIC_SECRET/);
@@ -96,12 +117,47 @@ test('missing preview keeps the description and hides its broken image action',(
   assert.equal($('.project-preview .image-link').hidden,true);assert.equal($('.project-preview .image-fallback').hidden,false);assert.match($('#project-utas-assistant').textContent,/Independently built/);
 });
 test('assistant branding and accessible form/log semantics remain intact',()=>{
- const logo=$('.site-header .brand-mark');assert.ok(logo);assert.equal(logo.alt,'Hosna Ara');assert.equal(logo.getAttribute('width'),'256');assert.equal(logo.getAttribute('height'),'128');assert.equal(logo.getAttribute('src'),'./assets/hosna-brand-mark-cropped.png');assert.equal(logo.parentElement.getAttribute('aria-label'),'Hosna Ara, home');
+ const logo=$('.site-header .brand-mark');assert.ok(logo);assert.equal(logo.alt,'Hosna Ara');assert.equal(logo.getAttribute('width'),'296');assert.equal(logo.getAttribute('height'),'280');assert.equal(logo.getAttribute('src'),'./assets/hb-monogram-cropped.png');assert.equal(logo.parentElement.getAttribute('aria-label'),'Hosna Ara, home');
  assert.equal($('#assistant-title').textContent,"Hosna's Personal AI Assistant");
  assert.doesNotMatch(document.body.textContent,/Hosna AI|HOSNA AI/);
  assert.equal($('#chat-log').getAttribute('role'),'log');assert.equal($('#chat-log').getAttribute('aria-live'),'polite');
  assert.ok(document.querySelector('label[for="question"]'));assert.equal($('#question').getAttribute('maxlength'),'400');
  assert.ok(document.querySelector('.skip-link[href="#main"]'));
+});
+test('Business Acumen award is visible in both project and achievement sections with certificate actions',()=>{
+ assert.match($('#project-cyberquiz .project-body').textContent,/Prize for Business Acumen/);
+ const achievement=$('#achievement-cyberquiz-business-acumen');
+ assert.ok(achievement);assert.match(achievement.textContent,/6 October 2026/);assert.match(achievement.textContent,/Hosna Ara Begum/);
+ assert.ok(achievement.querySelector('a[href="./assets/selected/cyberquiz-certificate.jpg"]'));
+ assert.ok($('#project-cyberquiz .card-links a[href="./assets/selected/cyberquiz-certificate.jpg"]'));
+ assert.equal(document.querySelectorAll('video').length,0);
+});
+test('the single Business Acumen entry displays the individual photo and uncropped certificate',()=>{
+ const entry=$('#achievement-cyberquiz-business-acumen');
+ assert.equal([...document.querySelectorAll('#leadership h3')].filter(h=>h.textContent==='Prize for Business Acumen').length,1);
+ assert.match(entry.textContent,/CyberQuiz Pro/);assert.match(entry.textContent,/Certificate of Excellence/);assert.match(entry.textContent,/University of Tasmania, School of ICT Expo 2026/);
+ assert.ok(entry.textContent.includes('Recognised for "outstanding strategic commercial acumen in the development of an innovative ICT solution addressing a real-world industry challenge."'));
+ assert.doesNotMatch(entry.textContent,/KIT700/);
+ const images=[...entry.querySelectorAll('img')];assert.deepEqual(images.map(i=>i.getAttribute('src')),['./assets/selected/cyberquiz-expo.jpg','./assets/selected/cyberquiz-certificate.jpg']);
+ assert.equal(images[1].width,1335);assert.equal(images[1].height,1888);
+ assert.match($('#leadership-moments').textContent,/A team achievement/);assert.match($('#leadership-moments').textContent,/Communication & community/);
+ assert.match($('#leadership-list').textContent,/TasNetworks Open Innovation Hackathon winner/);
+});
+test('project certificate action opens the achievement certificate directly and returns focus',()=>{
+ const action=$('#project-cyberquiz .card-links a[href="./assets/selected/cyberquiz-certificate.jpg"]');
+ let restored=false;const focus=action.focus;action.focus=()=>{restored=true;};
+ click(action);const gallery=$('.project-gallery');assert.ok(gallery);assert.equal(location.hash,'achievement-cyberquiz-business-acumen');
+ assert.equal(gallery.getAttribute('aria-label'),'Prize for Business Acumen image gallery');assert.equal(gallery.querySelector('.gallery-position').textContent,'2 / 2');
+ assert.match(gallery.querySelector('img').src,/cyberquiz-certificate.jpg$/);assert.equal(gallery.querySelector('img').height,1888);
+ click(gallery.querySelector('[aria-label="Close image gallery"]'));assert.equal($('.project-gallery'),null);assert.ok(restored);action.focus=focus;
+});
+test('achievement thumbnails and assistant certificate actions share the existing gallery',async()=>{
+ const entry=$('#achievement-cyberquiz-business-acumen');click(entry.querySelector('a.image-link'));
+ assert.equal($('.gallery-position').textContent,'1 / 2');click($('.project-gallery [aria-label="Next gallery image"]'));assert.match($('.project-gallery img').src,/cyberquiz-certificate.jpg$/);
+ click($('.project-gallery [aria-label="Close image gallery"]'));
+ await submit('What award did Hosna receive for CyberQuiz Pro?');assert.match(lastAnswer().textContent,/Prize for Business Acumen/);
+ const evidence=lastAnswer().querySelector('a[href="./assets/selected/cyberquiz-certificate.jpg"]');assert.ok(evidence);click(evidence);assert.equal($('.gallery-position').textContent,'2 / 2');
+ click($('.project-gallery [aria-label="Close image gallery"]'));
 });
 test('current work excludes completed projects and narrow follow-ups render metadata',async()=>{
  await submit('What is Hosna working on currently?');assert.match(lastAnswer().textContent,/UTAS Research Degree Assistant/);assert.match(lastAnswer().textContent,/interactive AI portfolio/);assert.doesNotMatch(lastAnswer().textContent,/ThreatBrief/);

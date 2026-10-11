@@ -7,7 +7,7 @@ after(()=>server.kill());
 await new Promise((resolve,reject)=>{server.stdout.once('data',resolve);server.once('error',reject);server.once('exit',code=>reject(new Error(`Server exited ${code}`)));});
 const request=path=>fetch(`http://127.0.0.1:${port}${path}`);
 test('production HTML, styles, scripts and knowledge are served with valid content types',async()=>{
-  for(const [path,type] of [['/','text/html'],['/styles.css','text/css'],['/src/app.js','text/javascript'],['/knowledge.json','application/json'],['/favicon.svg','image/svg+xml'],['/assets/hosna-brand-mark-cropped.png','image/png']]){
+  for(const [path,type] of [['/','text/html'],['/styles.css','text/css'],['/src/app.js','text/javascript'],['/knowledge.json','application/json'],['/favicon.svg','image/svg+xml'],['/assets/hb-monogram-cropped.png','image/png']]){
     const r=await request(path);assert.equal(r.status,200,path);assert.ok(r.headers.get('content-type').includes(type));assert.equal(r.headers.get('x-content-type-options'),'nosniff');
   }
 });
@@ -16,8 +16,8 @@ test('private sources, environment and repository data cannot be requested',asyn
 });
 test('every approved preview loads as a JPEG from the production server',async()=>{
   const {media}=await (await request('/knowledge.json')).json();
-  for(const image of [...Object.values(media.projects),...media.dashboards,...media.moments]){const response=await request('/'+image.src);assert.equal(response.status,200,image.src);assert.equal(response.headers.get('content-type'),'image/jpeg');const bytes=new Uint8Array(await response.arrayBuffer());assert.equal(bytes[0],255);assert.equal(bytes[1],216);assert.ok(bytes.length<400000);}
+  for(const image of [...Object.values(media.projects).flat(),...Object.values(media.achievements).flat(),...media.dashboards,...media.moments]){const response=await request('/'+(image.path||image.src));assert.equal(response.status,200,(image.path||image.src));assert.equal(response.headers.get('content-type'),'image/jpeg');const bytes=new Uint8Array(await response.arrayBuffer());assert.equal(bytes[0],255);assert.equal(bytes[1],216);assert.ok(bytes.length<400000);}
 });
 test('production knowledge is usable and public only',async()=>{
-  const {entities,links}=await (await request('/knowledge.json')).json();assert.equal(entities.length,32);assert.ok(entities.every(e=>e.visibility==='public'));assert.ok(links.length>=4);
+  const {entities,links}=await (await request('/knowledge.json')).json();assert.equal(entities.length,33);assert.ok(entities.every(e=>e.visibility==='public'));assert.ok(links.length>=4);
 });

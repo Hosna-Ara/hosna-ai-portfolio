@@ -1,3 +1,32 @@
+# V3 amendment — 2026-10-11
+
+This amendment supersedes only the affected V2 status/media/award statements below.
+The remaining source audit is retained as historical evidence.
+
+- The approved HB Monogram.png is the sole prominent navbar artwork; only its
+  whitespace-cropped derivative is published. The assistant emblem and two hero
+  slogan lines are removed, with the exact owner-supplied eyebrow.
+- CyberQuiz retains its six-member team and Hosna's Project Manager / Communication
+  Lead contribution. The owner supplies the award title Prize for Business Acumen.
+  The supplied HA Begum.png visually verifies the individual Certificate of
+  Excellence, University of Tasmania School of ICT Expo 2026, presented to Hosna
+  Ara Begum for CyberQuiz Pro, dated 6 October 2026, with the strategic commercial
+  acumen wording. The project, carousel and Achievements link to its reviewed JPEG.
+  No KIT700 award label or team-wide prize claim is added. No separately verified
+  People's Choice record was present in the inspected knowledge.
+- TasEnergy's current reporting milestone is owner-confirmed completed. Its two
+  supplied screenshots verify Tasmania's June 2026 demand/prices, spikes, hourly/
+  daily patterns and attention intervals. Filename order is _1 then _2; actual
+  titles are investigation then overview. Captions follow the pixels. No live
+  Power BI Service, automatic refresh, Fabric or production deployment is claimed.
+- Thirteen reviewed JPEGs and the HB PNG are allowlisted; raw photos/PNGs/PDFs,
+  private sources and evaluation files remain outside the production artifact.
+  No private source material was added to test fixtures. Tests use synthetic media/
+  privacy metadata. V3 validation: 149 tests pass; browser launch is blocked by
+  SIGABRT/EPERM with sandbox enabled. Manual visual review remains required.
+- Prior web verification dates below are historical; V3 evidence comes from supplied
+  assets and owner instructions, not a new external-source verification.
+
 # V2 amendment — 2026-09-27
 
 This amendment supersedes earlier recency/privacy implementation conclusions below;

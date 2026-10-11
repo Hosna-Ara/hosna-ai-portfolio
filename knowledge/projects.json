@@ -1,5 +1,79 @@
 [
   {
+    "id": "cyberquiz",
+    "category": "projects",
+    "title": "CyberQuiz Pro",
+    "date": "2026",
+    "summary": "An adaptive cybersecurity practice platform developed by a six-member University of Tasmania MITS capstone team. As Project Manager / Communication Lead, Hosna led planning, stakeholder communication, requirements traceability, architecture coordination and delivery management. Hosna received the Prize for Business Acumen for CyberQuiz Pro: a Certificate of Excellence from the University of Tasmania School of ICT Expo 2026, dated 6 October 2026, presented to Hosna Ara Begum in recognition of outstanding strategic commercial acumen in the development of an innovative ICT solution addressing a real-world industry challenge.",
+    "role": "Project Manager / Communication Lead",
+    "technologies": [],
+    "tags": [
+      "cyberquiz",
+      "cybersecurity",
+      "recent",
+      "team",
+      "capstone",
+      "leadership",
+      "award",
+      "achievement",
+      "prize",
+      "business",
+      "acumen"
+    ],
+    "source": "CV, selected projects; owner-supplied award title and visually reviewed Certificate of Excellence, 6 October 2026; live demo URL supplied by owner for V3 access refinement",
+    "visibility": "public",
+    "anchor": "project-cyberquiz",
+    "urls": [
+      {
+        "label": "Certificate of Excellence",
+        "url": "./assets/selected/cyberquiz-certificate.jpg"
+      },
+      {
+        "label": "Try Live Demo",
+        "url": "https://d2q8nnpm7i97w5.cloudfront.net"
+      }
+    ],
+    "status": "completed",
+    "year": 2026
+  },
+  {
+    "id": "tasenergy",
+    "category": "projects",
+    "title": "TasEnergy Insight",
+    "date": "Reporting milestone completed \u00b7 October 2026",
+    "summary": "Completed the current reporting milestone for a portfolio analytics project exploring Tasmania's June 2026 electricity market. Its Power BI dashboard analyses electricity demand, market prices, five-minute price spikes, daily and hourly patterns, demand versus price, negative-price intervals and periods requiring attention. The business scenario is fictional, not a client engagement. Completion refers to the reporting milestone; production deployment, live Power BI Service, automatic refresh and Fabric implementation are not claimed.",
+    "role": "Public portfolio project",
+    "technologies": [
+      "SQL",
+      "Python",
+      "Power BI",
+      "PostgreSQL"
+    ],
+    "tags": [
+      "bi",
+      "data",
+      "analytics",
+      "energy",
+      "recent",
+      "dashboard"
+    ],
+    "source": "Owner-confirmed reporting milestone completion for V3; supplied Power BI screenshots TasEnergy_1.png and TasEnergy_2.png, visually reviewed; Power BI PDF URL supplied by owner for V3 access refinement",
+    "visibility": "public",
+    "anchor": "project-tasenergy",
+    "urls": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/Hosna-Ara/tasenergy-insight"
+      },
+      {
+        "label": "View Power BI Report",
+        "url": "https://github.com/Hosna-Ara/tasenergy-insight/blob/main/powerbi/TasEnergy_Insight.pdf"
+      }
+    ],
+    "status": "completed",
+    "year": 2026
+  },
+  {
     "id": "utas-assistant",
     "category": "projects",
     "title": "UTAS Research Degree Assistant",
@@ -26,13 +100,17 @@
       "utas",
       "supervisor"
     ],
-    "source": "CV, selected projects; public repository README, checked 2026-09-27",
+    "source": "CV, selected projects; public repository README, checked 2026-09-27; live demo URL supplied by owner for V3 access refinement",
     "visibility": "public",
     "anchor": "project-utas-assistant",
     "urls": [
       {
         "label": "GitHub",
         "url": "https://github.com/Hosna-Ara/utas-research-degree-assistant"
+      },
+      {
+        "label": "Try Live Demo",
+        "url": "https://utas-research-degree-assistant.streamlit.app"
       }
     ],
     "status": "current",
@@ -66,67 +144,10 @@
     "year": 2026
   },
   {
-    "id": "cyberquiz",
-    "category": "projects",
-    "title": "CyberQuiz Pro",
-    "date": "2026",
-    "summary": "An adaptive cybersecurity practice platform developed by a six-member University of Tasmania MITS capstone team. As Project Manager / Communication Lead, Hosna led planning, stakeholder communication, requirements traceability, architecture coordination and delivery management.",
-    "role": "Project Manager / Communication Lead",
-    "technologies": [],
-    "tags": [
-      "cyberquiz",
-      "cybersecurity",
-      "recent",
-      "team",
-      "capstone",
-      "leadership"
-    ],
-    "source": "CV, selected projects",
-    "visibility": "public",
-    "anchor": "project-cyberquiz",
-    "urls": [],
-    "status": "completed",
-    "year": 2026
-  },
-  {
-    "id": "tasenergy",
-    "category": "projects",
-    "title": "TasEnergy Insight",
-    "date": "In progress · public repository checked Sep 2026",
-    "summary": "A portfolio analytics project exploring Australian electricity-market data for energy operations and decision support. The public README describes project setup and business analysis as in progress; proposed work includes dimensional modelling, SQL and Power BI reporting. The business scenario is fictional, not a client engagement.",
-    "role": "Public portfolio project",
-    "technologies": [
-      "SQL",
-      "Python",
-      "Power BI",
-      "PostgreSQL"
-    ],
-    "tags": [
-      "bi",
-      "data",
-      "analytics",
-      "energy",
-      "recent",
-      "dashboard"
-    ],
-    "source": "Public GitHub README, checked 2026-09-27",
-    "visibility": "public",
-    "anchor": "project-tasenergy",
-    "urls": [
-      {
-        "label": "GitHub",
-        "url": "https://github.com/Hosna-Ara/tasenergy-insight"
-      }
-    ],
-    "status": "current",
-    "year": 2026,
-    "plannedWork": "Proposed work includes dimensional modelling, SQL and Power BI reporting. Setup and business analysis are in progress; this is a fictional business scenario."
-  },
-  {
     "id": "portfolio-assistant",
     "category": "projects",
     "title": "Hosna's interactive AI portfolio",
-    "date": "2026 – present",
+    "date": "2026 \u2013 present",
     "year": 2026,
     "status": "current",
     "summary": "An interactive portfolio with Hosna's Personal AI Assistant, currently being developed through human-directed AI-assisted software engineering. It answers questions using curated public professional knowledge.",

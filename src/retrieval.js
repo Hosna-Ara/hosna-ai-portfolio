@@ -1,9 +1,11 @@
 export const UNKNOWN = "I don't have verified information about that in Hosna's portfolio yet.";
 export const normalize = value => String(value).normalize('NFKC').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
-const stop=new Set('a an the is are was were does do did has have had she her hosna hosnas s me tell about what how can could you i of in on to for and or with show please it that this more my by from at'.split(' '));
+const stop=new Set('a an the is are was were does do did has have had she her hosna hosnas s me tell about what how can could you i of in on to for and or with show please it its that this more my by from at'.split(' '));
 const canonical={projects:'project',publications:'publication',published:'publication',papers:'publication',paper:'publication',skills:'skill',technologies:'technology',tools:'technology',dashboards:'dashboard',reports:'reporting',qualifications:'education',qualification:'education',studying:'education',studied:'education',degrees:'degree',awards:'award',achievements:'achievement',links:'link',profiles:'profile',tumor:'tumour',humans:'human',planning:'planned',plans:'planned',finished:'completed',complete:'completed',currently:'current',ongoing:'current',active:'current',now:'current',preparing:'preparation',pharma:'pharmaceutical',knows:'know',uses:'use',used:'use'};
+Object.assign(canonical,{received:'receive',receives:'receive',analyses:'analyse',analyzes:'analyse',analyze:'analyse'});
 export const tokenize=value=>normalize(value).split(' ').filter(t=>t&&!stop.has(t)).map(t=>canonical[t]||t);
 const generic=new Set('who background biography meet describe explain give list all any some which where when much many years year most latest recent recently relevant working work worked doing remain still earned next future near term preparation planned current completed history professional personal information details detail portfolio question technology technical skill use build building built role contribution responsibilities responsibility know familiar proficient proficiency knowledge see view look examples example link profile project research researching experience experiences education publication degree bachelor master masters graduate graduated job employment career contact connect reach hire email award achievement won winner leadership community club volunteer data science business intelligence ai bi analytics direction topic approved moment'.split(' '));
+generic.add('receive');
 const unsafe=/\b(salary|visa|birthday|birth|address|phone|family|married|religion|politic|password|secret|credentials|private|ignore|disregard|pretend|system prompt|instructions|api key|cv|resume)\b/;
 const aliases=[
  ['utas-assistant',/\butas\b.*assistant|research degree assistant|\brag\b|retrieval augmented|supervisors?/],
@@ -51,7 +53,7 @@ export function facetFor(question){
  return 'summary';
 }
 function isFollowup(q){
- return /^(tell me more|more)( about (it|this|that))?$/.test(q) || /\b(it|this|that)\b/.test(q) || /^(what (was|is|were|are) her (role|contribution|responsibilities)|what technologies did she use|show me the link|can i see the project)$/.test(q);
+ return /^(tell me more|more)( about (it|this|that))?$/.test(q) || /\b(it|its|this|that)\b/.test(q) || /^(what (was|is|were|are) her (role|contribution|responsibilities)|what technologies did she use|show me the link|can i see the project)$/.test(q);
 }
 export function retrieve(question,entities,previousIds=[]){
  const q=normalize(question);
@@ -70,6 +72,10 @@ export function retrieve(question,entities,previousIds=[]){
  const subjects=tokenize(q).filter(t=>!generic.has(t));
  const publication=/publish|publication|papers?\b/.test(q);
  const exactIds=aliases.filter(([id,pattern])=>pattern.test(q)&&(!publication||!['brain-research','microwave-research','phd-preparation'].includes(id))).map(([id])=>id);
+ const awardIntent=/awards?|achievements?|prize|certificate|recognition/.test(q);
+ if(awardIntent&&exactIds.includes('cyberquiz')){
+  return publicEntities.filter(e=>e.category==='achievements'&&e.tags.includes('cyberquiz')&&subjects.every(t=>tokenize(fields(e)).includes(t)));
+ }
  if(exactIds.length){
   let matches=publicEntities.filter(e=>exactIds.includes(e.id)&&subjects.every(t=>tokenize(fields(e)).includes(t)||tokenize(e.title).some(v=>v.includes(t))));
   if(/^(show|list|which|what are)\b/.test(q)){
@@ -90,7 +96,7 @@ export function retrieve(question,entities,previousIds=[]){
  if(/education|degree|bachelor|master|qualification|studied|studying/.test(q))add('education');
  if(/contact|email|connect|reach|hire/.test(q))add('contact');
  if(/leadership|community|clubs?|volunteer/.test(q))add('leadership');
- if(/awards?|achievements?|won|winner/.test(q))add('achievements');
+ if(/awards?|achievements?|won|winner|prize|certificate|recognition/.test(q))add('achievements');
  if(/orcid|linkedin|github|scholar|professional (links?|profiles?)/.test(q))add('links');
  if(/hospital|pharma|dashboard|reporting examples/.test(q)&&!/experience|projects?/.test(q))add('dashboards');
  const skill=/technolog|skills?|tech stack|tools|programming|know|familiar|proficien|has she used/.test(q);

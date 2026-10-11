@@ -36,6 +36,43 @@ try{
   check(await page.locator('.project-card:visible').count()===1,'BI filter narrows to relevant project');
   check(await page.locator('.project-card:visible').innerText().then(t=>t.includes('TasEnergy')),'BI filter returns TasEnergy');
   await page.getByRole('button',{name:'All work',exact:true}).click();
+  const cyber=page.locator('#project-cyberquiz');
+  check(await page.locator('.project-card').evaluateAll(cards=>cards.map(c=>c.id).join(','))==='project-cyberquiz,project-tasenergy,project-utas-assistant,project-threatbrief','approved Featured Work order');
+  check(await page.locator('.ai-mark').count()===0,'assistant emblem removed');
+  check(await page.locator('#home .eyebrow').innerText()==='A PORTFOLIO THAT YOU CAN TALK, TO KNOW ABOUT','exact hero eyebrow');
+  check(await page.locator('#hero-title').innerText()==='Hosna','exact hero heading');
+  for(let position=1;position<=4;position++){
+    check((await cyber.locator('.carousel-position').innerText())===`${position} / 4`,'carousel position is visible');
+    const image=cyber.locator('img');await image.scrollIntoViewIfNeeded();
+    await image.evaluate(async img=>{if(!img.complete)await new Promise(resolve=>{img.addEventListener('load',resolve,{once:true});img.addEventListener('error',resolve,{once:true});});});
+    check(await image.evaluate(img=>img.naturalWidth>0),'CyberQuiz slide loads');
+    if(position<4)await cyber.getByRole('button',{name:'Next media for CyberQuiz Pro'}).click();
+  }
+  check((await cyber.locator('figcaption').innerText()).includes('Award celebration'),'award celebration caption');
+  await cyber.screenshot({path:'test-results/cyberquiz-award-desktop.png'});
+  await cyber.locator('.image-link').click();
+  const gallery=page.getByRole('dialog',{name:'CyberQuiz Pro image gallery'});
+  check(await gallery.isVisible(),'selected award photograph opens full-screen gallery');
+  check((await gallery.locator('.gallery-position').innerText())==='4 / 4','gallery opens selected slide');
+  check(await page.evaluate(()=>document.body.style.overflow==='hidden'),'gallery locks background scrolling');
+  await page.waitForTimeout(2100);
+  check((await cyber.locator('.carousel-position').innerText())==='4 / 4','open gallery pauses carousel autoplay');
+  await page.keyboard.press('ArrowRight');check((await gallery.locator('.gallery-position').innerText())==='1 / 4','gallery keyboard navigation wraps');
+  await page.keyboard.press('Escape');check(await page.locator('.project-gallery').count()===0,'Escape removes gallery');
+  check(await cyber.locator('.image-link').evaluate(link=>document.activeElement===link),'gallery restores opener focus');
+  check(await page.evaluate(()=>document.body.style.overflow!=='hidden'),'gallery restores background scrolling');
+  await cyber.locator('.media-carousel').focus();await page.keyboard.press('ArrowRight');
+  check((await cyber.locator('.carousel-position').innerText())==='1 / 4','keyboard carousel wraps');
+  check(await page.locator('#project-utas-assistant .carousel-controls button').count()===0,'single-image project has no redundant controls');
+  await cyber.getByRole('link',{name:'Certificate of Excellence ↗',exact:true}).click();
+  const certificateGallery=page.getByRole('dialog',{name:'Prize for Business Acumen image gallery'});
+  check(await certificateGallery.isVisible(),'project certificate link opens achievement gallery');
+  check((await certificateGallery.locator('.gallery-position').innerText())==='2 / 2','achievement certificate selected directly');
+  check((await certificateGallery.locator('img').getAttribute('src')).endsWith('cyberquiz-certificate.jpg'),'full certificate asset reused');
+  await certificateGallery.screenshot({path:'test-results/achievement-certificate-desktop.png'});
+  await page.keyboard.press('Escape');
+  check(await page.locator('#achievement-cyberquiz-business-acumen img').count()===2,'achievement photo and certificate present');
+
   for(const button of await page.locator('#suggestions button').all()){
     await page.getByRole('button',{name:'Clear chat',exact:true}).click();
     await button.click();await page.waitForFunction(()=>!document.querySelector('#chat-form button').disabled);
@@ -65,6 +102,11 @@ try{
     check(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth),`no horizontal overflow at ${width}px`);
   }
   await page.setViewportSize({width:390,height:844});
+  await page.locator('#project-tasenergy .image-link').click();
+  await page.getByRole('dialog',{name:'TasEnergy Insight image gallery'}).screenshot({path:'test-results/gallery-mobile.png'});
+  await page.getByRole('button',{name:'Next gallery image'}).click();
+  check((await page.locator('.gallery-position').innerText())==='2 / 2','mobile gallery navigation');
+  await page.getByRole('button',{name:'Close image gallery'}).click();
   await page.getByRole('button',{name:'Menu'}).click();check(await page.locator('#main-nav').isVisible(),'mobile navigation expands');
   await page.keyboard.press('Escape');check(!(await page.locator('#main-nav').isVisible()),'Escape closes mobile navigation');
   await page.getByRole('button',{name:'Menu'}).click();await page.locator('#main-nav a[href="#assistant"]').click();

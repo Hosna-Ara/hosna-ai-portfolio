@@ -8,8 +8,8 @@ import {build,loadKnowledge} from '../scripts/build.mjs';
 const payload=JSON.parse(await readFile('dist/knowledge.json','utf8'));
 const entities=payload.entities;
 const source={entities:await loadKnowledge(),links:JSON.parse(await readFile('knowledge/links.json','utf8')),media:JSON.parse(await readFile('knowledge/media.json','utf8'))};
-const cases=JSON.parse(await readFile('evaluation/queries.json','utf8'));
-for(const c of cases)test(`V2 evaluation regression: ${c.query} ${c.privateIds||''}`,()=>{
+const cases=JSON.parse(await readFile('evaluation/v3-queries.json','utf8'));
+for(const c of cases)test(`V3 evaluation regression: ${c.query} ${c.privateIds||''}`,()=>{
  const corpus=c.privateIds?entities.map(e=>c.privateIds.includes(e.id)?{...e,visibility:'private'}:e):entities;
  const result=retrieve(c.query,corpus,c.previousIds);
  if(!c.relevant.length)assert.deepEqual(result,[]);
@@ -27,11 +27,11 @@ test('planned-only entities and proposed steps in current projects remain distin
  const corpus=[planned,...entities];
  assert.ok(retrieve('What projects are planned?',corpus).includes(planned));
  assert.ok(!retrieve('What are her current projects?',corpus).includes(planned));
- assert.equal(entities.find(e=>e.id==='tasenergy').status,'current');
+ assert.equal(entities.find(e=>e.id==='tasenergy').status,'completed');
 });
 test('recent completed project ties are disclosed instead of inventing chronology',()=>{
  const answer=compose(retrieve('What is her latest completed project?',entities),'What is her latest completed project?');
- assert.equal(answer.entries.length,2);assert.match(answer.text,/cannot be verified/);
+ assert.equal(answer.entries.length,3);assert.match(answer.text,/cannot be verified/);
 });
 test('research preparation is exploration, never an approved PhD or publication',()=>{
  const e=entities.find(e=>e.id==='phd-preparation');assert.match(e.summary,/not an established project, approved PhD topic/);
@@ -84,6 +84,6 @@ test('actual build excludes synthetic private entities, links and media',async()
 });
 test('public output has only explicit build files and reviewed JPEG previews',async()=>{
  async function walk(path){return (await Promise.all((await readdir(path,{withFileTypes:true})).map(async d=>d.isDirectory()?walk(`${path}/${d.name}`):`${path}/${d.name}`))).flat();}
- const files=await walk('dist');const expected=['dist/index.html','dist/styles.css','dist/favicon.svg','dist/knowledge.json','dist/assets/hosna-brand-mark-cropped.png',...['app.js','retrieval.js','providers.js','knowledge.js'].map(f=>`dist/src/${f}`),...[...Object.values(payload.media.projects),...payload.media.dashboards,...payload.media.moments].map(m=>`dist/${m.src}`)];
+ const files=await walk('dist');const expected=['dist/index.html','dist/styles.css','dist/favicon.svg','dist/knowledge.json','dist/assets/hb-monogram-cropped.png',...['app.js','carousel.js','retrieval.js','providers.js','knowledge.js'].map(f=>`dist/src/${f}`),...[...Object.values(payload.media.projects).flat(),...Object.values(payload.media.achievements).flat(),...payload.media.dashboards,...payload.media.moments].map(m=>`dist/${m.path||m.src}`)];
  assert.deepEqual(files.sort(),[...new Set(expected)].sort());assert.ok(files.every(f=>! /\.pdf$|\.env|CV|cache|evaluation/.test(f)));
 });
